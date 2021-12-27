@@ -5,32 +5,37 @@ Feature: navigate
   I want to be able to sign up and to log in, then navigate through the different product types and also to
   be able to add them to the basket, I also want to be able to remove items from it and place my order
 
-  Scenario: Signing up on the online store for the first time
-    Given I am at the home page
-    When I press the sign up button
-    And I enter my new credentials
-    Then I should see the confirmation message saying signup successful
-
-#  Scenario: Logging in on the online store
+#  @Test_SignUp
+#  Scenario: Signing up on the online store for the first time
 #    Given I am at the home page
+#    When I press the sign up button
+#    And I enter my new credentials
+#    Then I should see the confirmation message saying signup successful
+
+#  @Test_LogIn
+#  Scenario: Logging in on the online store
+#    Given I am at the home page_log_in
 #    When I press the log in button
 #    And I enter my credentials
 #    Then I should see the label on the top right corner as welcome and my username
-#
+
+#  @Test_PhoneListing
 #  Scenario: Navigating on the phone listing
-#    Given I am at the home page
+#    Given I am at the home page_phone_listing
 #    When I press the Phones button
 #    Then I should see the phones list
 #
+#  @Test_LaptopListing
 #  Scenario: Navigating on the laptop listing
-#    Given I am at the home page
+#    Given I am at the home page_laptop_listing
 #    When I press the Laptops button
 #    Then I should see the laptops list
 #
-#  Scenario: Navigating on the monitors listing
-#    Given I am at the home page
-#    When I press the Monitors button
-#    Then I should see the monitors list
+  @Test_MonitorListing
+  Scenario: Navigating on the monitors listing
+    Given I am at the home page_monitor_listing
+    When I press the Monitors button
+    Then I should see the monitors list
 #
 #  Scenario: Adding products to the basket
 #    Given I want to products to the basket

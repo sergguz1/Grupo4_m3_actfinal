@@ -24,20 +24,23 @@ public class HomePage extends PageObject{
     @FindBy(how = How.ID, using = "nameofuser")
     WebElement welcomeLabelNavBar;
 
-//    @FindBy(how = How.ID, using = "signInModalLabel")
-//    WebElement title;
-//
-//    @FindBy(how = How.ID, using = "signInModal")
-//    WebElementFacade signInModal;
-//
-//    @FindBy(how = How.ID, using = "sign-username")
-//    WebElementFacade textBoxUsername;
-//
-//    @FindBy(how = How.ID, using = "sign-password")
-//    WebElementFacade textBoxPassword;
-//
-//    @FindBy(how = How.CSS, using = ".btn.btn-primary")
-//    WebElementFacade signUpModalButton;
+    @FindBy(how = How.XPATH, using = "/html/body/div[5]/div/div[1]/div/a[2]")
+    WebElement phoneButton;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[5]/div/div[1]/div/a[3]")
+    WebElement laptopButton;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[5]/div/div[1]/div/a[4]")
+    WebElement monitorButton;
+
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/div[1]/div/div/h4/a")
+    WebElement firstPhoneLabel;
+
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/div[1]/div/div/h4/a")
+    WebElement firstLaptopLabel;
+
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/div[1]/div/div/h4/a")
+    WebElement firstMonitoLabel;
 
     public HomePage(WebDriver driver){
         this.driver = driver;
@@ -60,22 +63,27 @@ public class HomePage extends PageObject{
         return welcomeLabelNavBar.getText();
     }
 
+    public void clickPhones(){
+        phoneButton.click();
+    }
 
+    public void clickLaptops(){
+        laptopButton.click();
+    }
 
-//    public String getSignInModalTitle(){
-//        signInModal.waitUntilVisible();
-//        return title.getText();
-//    }
-//
-//    public void enterUsername(String value){
-//        textBoxUsername.type(value);
-//    }
-//
-//    public void enterPassword(String value){
-//        textBoxPassword.type(value);
-//    }
-//
-//    public void clickSignUpModalButton(){
-//        signUpModalButton.click();
-//    }
+    public void clickMonitor(){
+        monitorButton.click();
+    }
+
+    public String getFirstPhoneLabelText(){
+        return firstPhoneLabel.getText();
+    }
+
+    public String getFirstLaptopLabelText(){
+        return firstLaptopLabel.getText();
+    }
+
+    public String getFirstMonitorLabelText(){
+        return firstMonitoLabel.getText();
+    }
 }
