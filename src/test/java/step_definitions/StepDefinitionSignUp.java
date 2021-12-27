@@ -33,6 +33,7 @@ public class StepDefinitionSignUp {
     @Given("I am at the home page")
     public void i_am_at_the_home_page() {
         driver.get("https://www.demoblaze.com/");
+        driver.manage().window().maximize();
     }
     @When("I press the sign up button")
     public void i_press_the_sign_up_button() {

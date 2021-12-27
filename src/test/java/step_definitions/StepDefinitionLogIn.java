@@ -32,6 +32,7 @@ public class StepDefinitionLogIn {
     @Given("I am at the home page_log_in")
     public void i_am_at_the_home_page_log_in() {
         driver.get("https://www.demoblaze.com/");
+        driver.manage().window().maximize();
     }
 
     @When("I press the log in button")

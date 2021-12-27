@@ -32,6 +32,7 @@ public class StepDefinitionNavigateToLaptops {
     @Given("I am at the home page_laptop_listing")
     public void i_am_at_the_home_page_laptop_listing() {
         driver.get("https://www.demoblaze.com/");
+        driver.manage().window().maximize();
         homePage.clickLogin();
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.switchTo().activeElement();
