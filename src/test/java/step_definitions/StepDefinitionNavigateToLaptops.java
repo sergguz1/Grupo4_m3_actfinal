@@ -47,13 +47,10 @@ public class StepDefinitionNavigateToLaptops {
     }
     @Then("I should see the laptops list")
     public void i_should_see_the_laptops_list() {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        homePage.wait_sleep(5000);
         String laptopLabelText = homePage.getFirstLaptopLabelText();
-        //System.out.println(laptopLabelText);
         assertThat(laptopLabelText).isEqualToIgnoringCase("Sony vaio i5");
+        homePage.wait_sleep(5000);
+        driver.quit();
     }
 }

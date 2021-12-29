@@ -46,12 +46,10 @@ public class StepDefinitionNavigateToMonitors {
     }
     @Then("I should see the monitors list")
     public void i_should_see_the_monitors_list() {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        homePage.wait_sleep(5000);
         String laptopLabelText = homePage.getFirstLaptopLabelText();
         assertThat(laptopLabelText).isEqualToIgnoringCase("Apple monitor 24");
+        homePage.wait_sleep(5000);
+        driver.quit();
     }
 }

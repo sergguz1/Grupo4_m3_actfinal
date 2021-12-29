@@ -123,14 +123,21 @@ public class HomePage extends PageObject{
         signUpButton.click();
         return this;
     }
+    public void wait_sleep(int num){
+        try {
+            Thread.sleep(num);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     public HomePage fillInSignUp(String username, String password){
         driver.switchTo().activeElement();
+        wait_sleep(2000);
         textBoxUsernameSignUp.sendKeys(username);
+        wait_sleep(2000);
         textBoxPasswordSignUp.sendKeys(password);
+        wait_sleep(2000);
         buttonSignIn.click();
-//        driver.findElement(By.xpath("//*[@id='sign-username']")).sendKeys(username);
-//        driver.findElement(By.id("sign-password")).sendKeys(password);
-//        driver.findElement(By.xpath("//*[@id='signInModal']/div/div/div[3]/button[2]")).click();
         return this;
     }
     public HomePage openLogInModal(){
@@ -139,8 +146,11 @@ public class HomePage extends PageObject{
     }
     public HomePage fillInLogIn(String username, String password){
         driver.switchTo().activeElement();
+        wait_sleep(2000);
         textBoxUsernameLogIn.sendKeys(username);
+        wait_sleep(2000);
         textBoxPasswordLogIn.sendKeys(password);
+        wait_sleep(2000);
         buttonLogIn.click();
         return this;
     }

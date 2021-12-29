@@ -44,15 +44,13 @@ public class StepDefinitionLogIn {
     @When("I enter my credentials")
     public void i_enter_my_credentials() {
         homePage.openLogInModal().fillInLogIn(username, password);
-//        driver.switchTo().activeElement();
-//        driver.findElement(By.id("loginusername")).sendKeys(username);
-//        driver.findElement(By.id("loginpassword")).sendKeys(password);
-//        driver.findElement(By.xpath("//*[@id='logInModal']/div/div/div[3]/button[2]")).click();
     }
     @Then("I should see the label on the top right corner as welcome and my username")
     public void i_should_see_the_label_on_the_top_right_corner_as_welcome_and_my_username() {
         wait.until(ExpectedConditions.visibilityOf(homePage.getWelcomeLabelNavBar()));
         String welcomeText = homePage.getWelcomeLabelNavBarText();
         assertThat(welcomeText).isEqualToIgnoringCase("Welcome " + username);
+        homePage.wait_sleep(5000);
+        driver.quit();
     }
 }

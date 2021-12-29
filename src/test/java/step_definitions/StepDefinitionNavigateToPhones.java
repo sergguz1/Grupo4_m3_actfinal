@@ -48,6 +48,8 @@ public class StepDefinitionNavigateToPhones {
     @Then("I should see the phones list")
     public void i_should_see_the_phones_list() {
         assertThat(homePage.getFirstPhoneLabelText()).isEqualToIgnoringCase("Samsung galaxy s6");
+        homePage.wait_sleep(5000);
+        driver.quit();
     }
 
 

@@ -20,8 +20,8 @@ public class StepDefinitionSignUp {
     private WebDriverWait wait;
     HomePage homePage;
 
-    String username = "user_user_5";
-    String password = "user_user_5";
+    String username = "user_user_11";
+    String password = "user_user_11";
 
     @Before("@Test_SignUp")
     public void setUp(){
@@ -49,5 +49,7 @@ public class StepDefinitionSignUp {
         String alertText = driver.switchTo().alert().getText();
         assertThat(alertText).isEqualToIgnoringCase("Sign up successful.");
         driver.switchTo().alert().accept();
+        homePage.wait_sleep(5000);
+        driver.quit();
     }
 }
