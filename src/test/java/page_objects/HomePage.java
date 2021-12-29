@@ -67,6 +67,46 @@ public class HomePage extends PageObject{
     @FindBy(how = How.XPATH, using = "//*[@id='logInModal']/div/div/div[3]/button[2]")
     WebElement buttonLogIn;
 
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/div[1]/div/div/h4/a")
+    WebElement S6button;
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/div[2]/div/a")
+    WebElement addS6button;
+
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/div[4]/div/div/h4/a")
+    WebElement S7button;
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/div[2]/div/a")
+    WebElement addS7button;
+
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/div[2]/div/div/h4/a")
+    WebElement i7button;
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/div[2]/div/a")
+    WebElement addi7button;
+
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/tr/td[4]/a")
+    WebElement deleteS6Button;
+
+    @FindBy(how = How.XPATH, using = "//*[@id='page-wrapper']/div/div[2]/button")
+    WebElement orderButton;
+
+    @FindBy(how = How.ID, using = "name")
+    WebElement textBoxName;
+    @FindBy(how = How.ID, using = "country")
+    WebElement textBoxCountry;
+    @FindBy(how = How.ID, using = "city")
+    WebElement textBoxCity;
+    @FindBy(how = How.ID, using = "card")
+    WebElement textBoxCard;
+    @FindBy(how = How.ID, using = "month")
+    WebElement textBoxMonth;
+    @FindBy(how = How.ID, using = "year")
+    WebElement textBoxYear;
+    @FindBy(how = How.XPATH, using = "//*[@id='orderModal']/div/div/div[3]/button[2]")
+    WebElement confirmPurchaseButton;
+    @FindBy(how = How.XPATH, using = "/html/body/div[10]/h2")
+    WebElement purchaseResponse;
+    @FindBy(how = How.XPATH, using = "/html/body/div[10]/div[7]/div/button")
+    WebElement okPurchaseButton;
+
 
 
     public HomePage(WebDriver driver){
@@ -154,4 +194,42 @@ public class HomePage extends PageObject{
         buttonLogIn.click();
         return this;
     }
+
+    public void clickS6Button(){ S6button.click(); }
+    public void clickAddS6Button(){ addS6button.click(); }
+
+    public void clickS7Button(){ S7button.click(); }
+    public void clickAddS7Button(){ addS7button.click(); }
+
+    public void clicki7Button(){ i7button.click(); }
+    public void clickAddi7Button(){ addi7button.click(); }
+
+    public void clickDeleteS6Button(){ deleteS6Button.click(); }
+
+    public void clickOrderButton(){ orderButton.click(); }
+
+    public HomePage fillInPurchase(String name, String country, String city, String card, String month, String year){
+        driver.switchTo().activeElement();
+        wait_sleep(2000);
+        textBoxName.sendKeys(name);
+        wait_sleep(2000);
+        textBoxCountry.sendKeys(country);
+        wait_sleep(2000);
+        textBoxCity.sendKeys(city);
+        wait_sleep(2000);
+        textBoxCard.sendKeys(card);
+        wait_sleep(2000);
+        textBoxMonth.sendKeys(month);
+        wait_sleep(2000);
+        textBoxYear.sendKeys(year);
+        wait_sleep(2000);
+        confirmPurchaseButton.click();
+        return this;
+    }
+
+    public void clickPurchase(){ confirmPurchaseButton.click(); }
+
+    public String getPurchaseText(){ return purchaseResponse.getText(); }
+
+    public void clickOkPurchase(){ okPurchaseButton.click(); }
 }

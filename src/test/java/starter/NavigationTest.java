@@ -15,6 +15,12 @@ public class NavigationTest {
     StepDefinitionNavigateToPhones stepDefinitionNavigateToPhones;
     StepDefinitionNavigateToLaptops stepDefinitionNavigateToLaptops;
     StepDefinitionNavigateToMonitors stepDefinitionNavigateToMonitors;
+    StepDefinitionBuyPhoneS6 stepDefinitionBuyPhoneS6;
+    StepDefinitionBuyPhoneS7 stepDefinitionBuyPhoneS7;
+    StepDefinitionsBuyLaptopi7 stepDefinitionsBuyLaptopi7;
+    StepDefinitionDeleteAddS6 stepDefinitionDeleteAddS6;
+    StepDefinitionBuyArticles stepDefinitionBuyArticles;
+
     @Test
     public void should_sign_up(){
         stepDefinitionSignUp.i_am_at_the_home_page();
@@ -50,5 +56,40 @@ public class NavigationTest {
         stepDefinitionNavigateToMonitors.i_am_at_the_home_page_monitor_listing();
         stepDefinitionNavigateToMonitors.i_press_the_monitors_button();
         stepDefinitionNavigateToMonitors.i_should_see_the_monitors_list();
+    }
+
+        @Test
+    public void should_buy_phone_s6(){
+        stepDefinitionBuyPhoneS6.i_am_at_the_phone_s6_page();
+        stepDefinitionBuyPhoneS6.i_add_a_s6_phone();
+        stepDefinitionBuyPhoneS6.i_added_a_s6_phone();
+    }
+
+    @Test
+    public void should_buy_phone_s7(){
+        stepDefinitionBuyPhoneS7.i_am_at_the_phone_s7_page();
+        stepDefinitionBuyPhoneS7.i_add_a_s7_phone();
+        stepDefinitionBuyPhoneS7.i_added_a_s7_phone();
+    }
+
+    @Test
+    public void should_buy_laptop_i7(){
+        stepDefinitionsBuyLaptopi7.i_am_at_the_Laptop_i7_page();
+        stepDefinitionsBuyLaptopi7.i_add_a_Laptop_i7();
+        stepDefinitionsBuyLaptopi7.i_added_a_Laptop_i7();
+    }
+
+    @Test
+    public void should_delete_s6(){
+        stepDefinitionDeleteAddS6.i_added_the_s6();
+        stepDefinitionDeleteAddS6.i_am_at_cart_page();
+        stepDefinitionDeleteAddS6.i_delete_the_s6();
+    }
+
+    @Test
+    public void should_place_a_order(){
+        stepDefinitionBuyArticles.i_place_a_order();
+        stepDefinitionBuyArticles.i_put_my_data();
+        stepDefinitionBuyArticles.i_make_a_order();
     }
 }

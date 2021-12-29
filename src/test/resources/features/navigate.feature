@@ -24,18 +24,48 @@ Feature: navigate
     Given I am at the home page_phone_listing
     When I press the Phones button
     Then I should see the phones list
-#
+
   @Test_LaptopListing
   Scenario: Navigating on the laptop listing
     Given I am at the home page_laptop_listing
     When I press the Laptops button
     Then I should see the laptops list
-#
+
   @Test_MonitorListing
   Scenario: Navigating on the monitors listing
     Given I am at the home page_monitor_listing
     When I press the Monitors button
     Then I should see the monitors list
+
+  @Test_BuyPhoneS6
+  Scenario: Buy Phone S6
+    Given I am at the phone S6 page
+    When I add a S6 phone
+    Then I added a S6 phone
+
+  @Test_BuyPhoneS7
+  Scenario: Buy Phone S7
+    Given I am at the phone S7 page
+    When I add a S7 phone
+    Then I added a S7 phone
+
+  @Test_BuyLaptopi7
+  Scenario: Buy Laptop i7
+    Given I am at the Laptop i7 page
+    When I add a Laptop i7
+    Then I added a Laptop i7
+
+  @Test_DeleteAddedS6
+  Scenario: Delete added S6
+    Given I added the s6
+    When I am at cart page
+    Then I delete the s6
+
+  @Test_BuyArticles
+  Scenario: Buy articles
+    Given I place a order
+    When I put my data
+    Then I make a order
 #
 #  Scenario: Adding products to the basket
 #    Given I want to products to the basket
