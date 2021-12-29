@@ -49,11 +49,6 @@ public class StepDefinitionBuyPhoneS7 {
         assertThat(alertText).isEqualToIgnoringCase("Product added");
         driver.switchTo().alert().accept();
         homePage.wait_sleep(5000);
-        String laptopLabelText = homePage.getPurchaseText();
-        assertThat(laptopLabelText).isEqualToIgnoringCase("Thank you for your purchase!");
-        homePage.wait_sleep(2000);
-
-        homePage.wait_sleep(2000);
         driver.quit();
     }
 }
