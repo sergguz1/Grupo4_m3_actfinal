@@ -1,7 +1,6 @@
 package page_objects;
 
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,20 +23,51 @@ public class HomePage extends PageObject{
     @FindBy(how = How.ID, using = "nameofuser")
     WebElement welcomeLabelNavBar;
 
-//    @FindBy(how = How.ID, using = "signInModalLabel")
-//    WebElement title;
-//
-//    @FindBy(how = How.ID, using = "signInModal")
-//    WebElementFacade signInModal;
-//
-//    @FindBy(how = How.ID, using = "sign-username")
-//    WebElementFacade textBoxUsername;
-//
-//    @FindBy(how = How.ID, using = "sign-password")
-//    WebElementFacade textBoxPassword;
-//
-//    @FindBy(how = How.CSS, using = ".btn.btn-primary")
-//    WebElementFacade signUpModalButton;
+    @FindBy(how = How.XPATH, using = "/html/body/div[5]/div/div[1]/div/a[2]")
+    WebElement phoneButton;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[5]/div/div[1]/div/a[3]")
+    WebElement laptopButton;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[5]/div/div[1]/div/a[4]")
+    WebElement monitorButton;
+
+    public WebElement getFirstPhoneLabel() {
+        return firstPhoneLabel;
+    }
+
+    public WebElement getFirstLaptopLabel() {
+        return firstLaptopLabel;
+    }
+
+    public WebElement getFirstMonitorLabel() {
+        return firstMonitorLabel;
+    }
+
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/div[1]/div/div/h4/a")
+    WebElement firstPhoneLabel;
+
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/div[1]/div/div/h4/a")
+    WebElement firstLaptopLabel;
+
+    @FindBy(how = How.XPATH, using = "//*[@id='tbodyid']/div[1]/div/div/h4/a")
+    WebElement firstMonitorLabel;
+
+    @FindBy(how = How.ID, using = "sign-username")
+    WebElement textBoxUsernameSignUp;
+    @FindBy(how = How.ID, using = "sign-password")
+    WebElement textBoxPasswordSignUp;
+    @FindBy(how = How.XPATH, using = "//*[@id='signInModal']/div/div/div[3]/button[2]")
+    WebElement buttonSignIn;
+
+    @FindBy(how = How.ID, using = "loginusername")
+    WebElement textBoxUsernameLogIn;
+    @FindBy(how = How.ID, using = "loginpassword")
+    WebElement textBoxPasswordLogIn;
+    @FindBy(how = How.XPATH, using = "//*[@id='logInModal']/div/div/div[3]/button[2]")
+    WebElement buttonLogIn;
+
+
 
     public HomePage(WebDriver driver){
         this.driver = driver;
@@ -60,22 +90,68 @@ public class HomePage extends PageObject{
         return welcomeLabelNavBar.getText();
     }
 
+    public WebElement getWelcomeLabelNavBar() {
+        return welcomeLabelNavBar;
+    }
 
+    public void clickPhones(){
+        phoneButton.click();
+    }
 
-//    public String getSignInModalTitle(){
-//        signInModal.waitUntilVisible();
-//        return title.getText();
-//    }
-//
-//    public void enterUsername(String value){
-//        textBoxUsername.type(value);
-//    }
-//
-//    public void enterPassword(String value){
-//        textBoxPassword.type(value);
-//    }
-//
-//    public void clickSignUpModalButton(){
-//        signUpModalButton.click();
-//    }
+    public void clickLaptops(){
+        laptopButton.click();
+    }
+
+    public void clickMonitor(){
+        monitorButton.click();
+    }
+
+    public String getFirstPhoneLabelText(){
+        return firstPhoneLabel.getText();
+    }
+
+    public String getFirstLaptopLabelText(){
+        return firstLaptopLabel.getText();
+    }
+
+    public String getFirstMonitorLabelText(){
+        return firstMonitorLabel.getText();
+    }
+
+    //New
+    public HomePage openSignUpModal(){
+        signUpButton.click();
+        return this;
+    }
+    public void wait_sleep(int num){
+        try {
+            Thread.sleep(num);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public HomePage fillInSignUp(String username, String password){
+        driver.switchTo().activeElement();
+        wait_sleep(2000);
+        textBoxUsernameSignUp.sendKeys(username);
+        wait_sleep(2000);
+        textBoxPasswordSignUp.sendKeys(password);
+        wait_sleep(2000);
+        buttonSignIn.click();
+        return this;
+    }
+    public HomePage openLogInModal(){
+        loginButton.click();
+        return this;
+    }
+    public HomePage fillInLogIn(String username, String password){
+        driver.switchTo().activeElement();
+        wait_sleep(2000);
+        textBoxUsernameLogIn.sendKeys(username);
+        wait_sleep(2000);
+        textBoxPasswordLogIn.sendKeys(password);
+        wait_sleep(2000);
+        buttonLogIn.click();
+        return this;
+    }
 }
