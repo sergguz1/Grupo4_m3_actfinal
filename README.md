@@ -3,7 +3,8 @@
 ###Jeisson Torrecilla
 
 ##Modo de uso
-La finalidad del codigo es realizar testing a la pagina www.demoblaze.com como objketivo definido en la actividad del modulo 3.
+
+La finalidad del codigo es realizar testing a la pagina www.demoblaze.com como objketivo definido en la actividad del modulo 3. Las purebas estan orientadas en un entorno de **Windows**.
 
 Notas:
 
@@ -27,3 +28,4 @@ Notas:
 ![client](img/Nota3-img1.png)
 
 4. Enjoy the test :)
+
