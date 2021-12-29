@@ -4,7 +4,6 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,39 +14,42 @@ import java.time.Duration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class StepDefinitionSignUp {
+public class StepDefinitionsBuyLaptopi7 {
+
     private WebDriver driver;
-    private WebDriverWait wait;
     HomePage homePage;
 
-    String username = "user_user_12";
-    String password = "user_user_12";
+    String username = "user_9";
+    String password = "user_9";
 
-    @Before("@Test_SignUp")
+    @Before("@Test_BuyLaptopi7")
     public void setUp(){
         System.setProperty("webdriver.chrome.driver","src/test/resources/drivers/windows/chromedriver.exe");
         driver = new ChromeDriver();
         homePage = new HomePage(driver);
     }
 
-    @Given("I am at the home page")
-    public void i_am_at_the_home_page() {
+    @Given("I am at the Laptop i7 page")
+    public void i_am_at_the_Laptop_i7_page() {
         driver.get("https://www.demoblaze.com/");
-    }
-    @When("I press the sign up button")
-    public void i_press_the_sign_up_button() {
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        homePage.wait_sleep(2000);
+        homePage.clickLaptops();
+        homePage.wait_sleep(2000);
+        homePage.clicki7Button();
     }
-    @When("I enter my new credentials")
-    public void i_enter_my_new_credentials() {
-        homePage.openSignUpModal().fillInSignUp(username, password);
+
+    @When("I add a Laptop i7")
+    public void i_add_a_Laptop_i7(){
+        homePage.wait_sleep(2000);
+        homePage.clickAddi7Button();
     }
-    @Then("I should see the confirmation message saying signup successful")
-    public void i_should_see_the_confirmation_message_saying_signup_successful() {
-        wait.until(ExpectedConditions.alertIsPresent());
+
+    @Then("I added a Laptop i7")
+    public void i_added_a_Laptop_i7(){
+        homePage.wait_sleep(2000);
         String alertText = driver.switchTo().alert().getText();
-        assertThat(alertText).isEqualToIgnoringCase("Sign up successful.");
+        assertThat(alertText).isEqualToIgnoringCase("Product added");
         driver.switchTo().alert().accept();
         homePage.wait_sleep(5000);
         driver.quit();
